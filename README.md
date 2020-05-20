@@ -2,7 +2,7 @@
 
 ## Wymagania klienta
 
-Wymagania klienta maja określić najbliższe oczekiwane wersje produktu oraz nakreślenie jak aplikacja powinna działać w pełni swoich możliwości. Nie mniej jednak nie wszystkie funkcjonalności będą wdrażane od początku projektu i należy zwrócić uwagę na fakt iż narzędzia mogą być rozszerzane i wersjonowane. Mając to na uwadze można pisać kod pod tym kontem unikając niepotrzebnego re-factoringu w późniejszej fazie projektu.
+Wymagania klienta maja określić najbliższe oczekiwane wersje produktu oraz nakreślenie jak aplikacja powinna działać w pełni swoich możliwości. Nie mniej jednak nie wszystkie funkcjonalności będą wdrażane od początku projektu i należy zwrócić uwagę na fakt iż narzędzia mogą być rozszerzane i wersjonowane. Mając to na uwadze można pisać kod pod tym kontem unikając niepotrzebnego re-factoringu w późniejszej fazie projektu. **Pierwsze narzędzia** <u>zaleca</u> się wykonać w kolejności ponieważ wraz z nimi będzie tworzony cały `core` aplikacji.
 
 ### Produkt
 
@@ -47,3 +47,36 @@ Użytkownik z tego miejsca powinien mieć możliwość dodawania produktów z **
 > Wspomniane wcześniej dodawanie / proponowanie lokalnych produktów do globalnej bazy danych przez użytkowników nie jest **w tym momencie** celem tego narzędzia.
 
 Produkty i ich ilość powinny być przypisane do odpowiednich kategorii ale nie jest to wymagane. Mogą być produkty, które nie należą do żadnej kategorii ale wciąż występują w gospodarstwie domowym. Kategorie powinny również mieć możliwość `przypięcia` produktów do odpowiedniej kategorii, oznacza to ze użytkownik może chcieć mieć produkt w kategorii pomimo `zerowej` ilości produktu w domu. Ma to zapobiec ciągłemu rozmieszczaniu produktów po kategoriach przy każdym dodawaniu go do spiżarni. W tym przypadku po dodaniu produktu, który jest przypięty, zwiększy się ilość produktu już przypiętego, a w przypadku większej ilości przypięć tego samego produktu zapyta go `o określenie kategorii` a następnie zwiększy w niej ilość.
+
+###### Auto-uzupełnianie
+
+Użytkownik podczas dodawania ręcznie produktów do spiżarni powinien podczas wpisywania nazwy lub kodu kreskowego dostawać propozycję już dostępnych produktów z bazy globalne jak i lokalnej. Ma to ułatwić dodawanie i zapobiec ewentualnym duplikatom.
+
+###### Szybkie dodawanie
+
+W postaci kafelek, skrótów, dorwanie produktów po kliknięciu. Użytkownik podczas dodawania ma opcję dodania produktu za pomocą sugerowanych kafelek (na bazie historii).
+
+> Później też będzie mógł mieć możliwość dodawania własnych spersonalizowanych kafelek
+
+###### Skanowanie produktu
+
+Jest to opcja z której użytkownicy urządzeń mobilnych będą mogli z pewnością skorzystać używając do tego aparatu. Za pomocą QR albo 2D kodu będą mogli szybko wczytać dany produkt w celu uzupełniania spiżarni.
+
+> Istnieje rozszerzenia tego w późniejszej fazie o czytnik pod USB lub czytnik USB wraz z układami `Rassbery PI` i podobnymi w celu szybkiej inwentaryzacji
+
+###### Zużycie, Utylizacja, Przeterminowanie
+
+Ta forma obecnie ograniczać się będzie do ręcznego usuwania. Ta forma ma kilka typów. Produkty mogą zostać zużyte ale również wyrzucone z różnych powodów. Podobnie jak dodawanie produktów, w ten sam sposób będzie określało się zużycie. Ten moduł dodawania będzie prawdopodobnie wykorzystany ponownie w innej formie. Po mimo usuwania produktów, należy również zapamiętać / zapisać ilość zużywanych produktów - <u>dla późniejszych narzędzi</u>.
+
+##### Przepisy
+
+To narzędzie do tworzenia przepisów. Prosta konstrukcja a`la książki kucharskiej. Dodawanie przepisów podobnie jak produktów jest zarządzane przez administratora. Pomimo tego użytkownik powinien być w stanie również tworzyć przepisy lecz nie powinny być one dostępne dla innych użytkowników do momentu w którym użytkownik nie zgłosi swojego przepisu do upublicznienia, a następnie nie zostanie zaakceptowany.
+
+Przepis powinien składać się ze zdjęcia, opisu czynności, czasu, oceny trudności, `?oceny użytkownika?`, ilości produktów, a sam przepis powinien być skalowalny. Skalowanie może odbywać się za pomocą ilości porcji lub ilości gram gotowego produktu. Dlatego przepis powinien zakładać również wagę gotowego dania w celu określenia ilości składników do przygotowania posiłku.
+
+> W późniejszej fazie projektu:
+>
+> - narzędzie to powinno moc generować zużycie danych produktów na podstawie przepisu i odejmować wartości z spiżarni użytkownika.
+> - proponować posiłki na podstawie ilości składników w domu
+> - proponować tanie posiłki
+> - podgląd dostępnych składników 30/100%
